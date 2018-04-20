@@ -1,4 +1,25 @@
 {
+  "name": "my-dts-backbone-form",
+  "description": "Description...",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamesNgo-CoT/my-dts-backbone-form.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JamesNgo-CoT/my-dts-backbone-form/issues"
+  },
+  "homepage": "https://github.com/JamesNgo-CoT/my-dts-backbone-form#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
