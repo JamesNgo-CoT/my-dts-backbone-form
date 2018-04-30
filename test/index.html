@@ -12,6 +12,7 @@
 <body>
   <div class="container">
     <h1>Test Page</h1>
+    test
   </div>
 
   <script src="../node_modules/babel-polyfill/dist/polyfill.min.js"></script>
@@ -19,6 +20,71 @@
   <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="../node_modules/underscore/underscore-min.js"></script>
   <script src="../node_modules/backbone/backbone-min.js"></script>
+
+  <script src="../dist/scripts/formbaseview.js"></script>
+  <script src="../dist/scripts/formtextfieldview.js"></script>
+  <script src="../dist/scripts/formrowview.js"></script>
+  <script src="../dist/scripts/formsectionview.js"></script>
+  <script src="../dist/scripts/formpageview.js"></script>
+  <script src="../dist/scripts/formview.js"></script>
+
+  <script>
+    const Form = FormView.extend({
+      id: 'form_0001',
+      title: 'Form Title',
+
+      sections: [{
+        title: 'Section Title 1',
+
+        rows: [{
+          fields: [{
+            id: 'textfield0001',
+            title: 'Field Title',
+            type: 'text',
+            className: 'col-xs-4',
+            pre_help_text: 'PRE HELP TEXT',
+            post_help_text: 'POST HELP TEXT'
+          }, {
+            title: 'Field Title',
+            type: 'text',
+            className: 'col-xs-4'
+          }, {
+            title: 'Field Title',
+            type: 'text',
+            className: 'col-xs-4'
+          }]
+        }]
+      }, {
+        title: 'Section Title 2',
+
+        rows: [{
+          fields: [{
+            title: 'Field Title',
+            type: 'text'
+          }]
+        }]
+      }, {
+        title: 'Section Title 3',
+
+        rows: [{
+          fields: [{
+            title: 'Field Title',
+            type: 'text'
+          }]
+        }]
+      }]
+    });
+
+    const model = window.model = new Backbone.Model({
+      textfield0001: 'test'
+    });
+
+    const form = new Form({ model: model });
+
+    $('.container').append(form.$el);
+
+    form.render();
+  </script>
 </body>
 
 </html>
