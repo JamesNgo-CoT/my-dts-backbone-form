@@ -23,7 +23,7 @@ const FormTextFieldView = FormBaseView.extend({
 
     const id = _.result(this, 'id');
     if (id) {
-      const $input = this.$el.find('input');
+      const $input = this.$el.find(':input');
 
       this.listenTo(this.model, 'change:' + id, () => {
         $input.val(this.model.get(id));
@@ -44,8 +44,6 @@ const FormTextFieldView = FormBaseView.extend({
   initialize: function(options) {
     if (!_.result(this, 'wrapperId') && _.result(this, 'id')) {
       this.wrapperId = _.result(this, 'id') + 'Element';
-
-      console.log('WRAPPER ID', this.wrapperId);
     }
 
     FormBaseView.prototype.initialize.call(this, options);

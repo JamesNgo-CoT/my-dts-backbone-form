@@ -1,4 +1,4 @@
-/* global FormBaseView FormTextFieldView */
+/* global FormBaseView FormTextFieldView FormDropDownFieldView */
 
 /* exported FormRowView */
 const FormRowView = FormBaseView.extend({
@@ -15,7 +15,9 @@ const FormRowView = FormBaseView.extend({
   subviewAttributes: [{
     attribute: 'fields',
     view: (config) => {
-      switch(config.type) {
+      switch(config.type.toUpperCase()) {
+        case 'DROPDOWN':
+        return FormDropDownFieldView;
         default:
         return FormTextFieldView;
       }

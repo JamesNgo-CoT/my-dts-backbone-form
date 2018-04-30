@@ -23,6 +23,7 @@
 
   <script src="../dist/scripts/formbaseview.js"></script>
   <script src="../dist/scripts/formtextfieldview.js"></script>
+  <script src="../dist/scripts/formdropdownfieldview.js"></script>
   <script src="../dist/scripts/formrowview.js"></script>
   <script src="../dist/scripts/formsectionview.js"></script>
   <script src="../dist/scripts/formpageview.js"></script>
@@ -45,9 +46,11 @@
             pre_help_text: 'PRE HELP TEXT',
             post_help_text: 'POST HELP TEXT'
           }, {
+            id: 'dropdown',
             title: 'Field Title',
-            type: 'text',
-            className: 'col-xs-4'
+            type: 'dropdown',
+            className: 'col-xs-4',
+            choices: ['Option 1', 'Option 2', 'Option 3']
           }, {
             title: 'Field Title',
             type: 'text',
@@ -76,7 +79,8 @@
     });
 
     const model = window.model = new Backbone.Model({
-      textfield0001: 'test'
+      textfield0001: 'test',
+      dropdown: 'Option 2'
     });
 
     const form = new Form({ model: model });

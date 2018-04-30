@@ -27,7 +27,7 @@ var FormTextFieldView = FormBaseView.extend({
 
     var id = _.result(this, 'id');
     if (id) {
-      var $input = this.$el.find('input');
+      var $input = this.$el.find(':input');
 
       this.listenTo(this.model, 'change:' + id, function () {
         $input.val(_this.model.get(id));
@@ -49,8 +49,6 @@ var FormTextFieldView = FormBaseView.extend({
   initialize: function initialize(options) {
     if (!_.result(this, 'wrapperId') && _.result(this, 'id')) {
       this.wrapperId = _.result(this, 'id') + 'Element';
-
-      console.log('WRAPPER ID', this.wrapperId);
     }
 
     FormBaseView.prototype.initialize.call(this, options);

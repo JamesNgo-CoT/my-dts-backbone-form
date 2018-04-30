@@ -1,6 +1,6 @@
 'use strict';
 
-/* global FormBaseView FormTextFieldView */
+/* global FormBaseView FormTextFieldView FormDropDownFieldView */
 
 /* exported FormRowView */
 var FormRowView = FormBaseView.extend({
@@ -17,7 +17,9 @@ var FormRowView = FormBaseView.extend({
   subviewAttributes: [{
     attribute: 'fields',
     view: function view(config) {
-      switch (config.type) {
+      switch (config.type.toUpperCase()) {
+        case 'DROPDOWN':
+          return FormDropDownFieldView;
         default:
           return FormTextFieldView;
       }

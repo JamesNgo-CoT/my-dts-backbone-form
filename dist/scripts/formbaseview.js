@@ -5,6 +5,12 @@ var FormBaseView = Backbone.View.extend({
 
   // PROPERTY DEFINITION
 
+  // configAttributes?:function|[string],
+
+  // domAttributes?:function|[string|{ attribute:function|string, domAttribute?:function|string }]
+
+  // subviewAttributes?:function|[{ attribute:function|string, selector?:function|string, view:Backbone.View }],
+
   template: function template() {},
 
   // METHOD DEFINITION
@@ -72,6 +78,7 @@ var FormBaseView = Backbone.View.extend({
     for (var i = 0, l = domAttributes.length; i < l; i++) {
       var attribute = typeof domAttributes[i] === 'string' ? domAttributes[i] : _.result(domAttributes[i], 'attribute');
       var domAttribute = typeof domAttributes[i] === 'string' ? domAttributes[i] : _.result(domAttributes[i], 'domAttribute', attribute);
+
       if (attribute && this[attribute] && domAttribute) {
         this.$el.attr(domAttribute, this[attribute]);
       }
