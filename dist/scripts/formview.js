@@ -12,8 +12,8 @@ var FormView = FormBaseView.extend({
   configAttributes: ['title'],
 
   domAttributes: [{
-    attribute: 'id',
-    domAttribute: 'id'
+    attribute: 'title',
+    domAttribute: 'title'
   }],
 
   subviewAttributes: [{
@@ -32,5 +32,5 @@ var FormView = FormBaseView.extend({
 
   tagName: 'form',
 
-  template: _.template('\n<h2><%- config.title %></h2>\n\n<div class="row">\n  <div class="col-xs-12">\n    <button type="button" class="btn btn-default">Submit</button>\n  </div>\n</div>\n\n<div class="cot-form-pages"></div>\n\n<div class="cot-form-sections"></div>\n')
+  template: _.template('\n<% if (config.title) { %>\n<h2><%- config.title %></h2>\n<% } %>\n\n<p><button type="button" class="btn btn-default">Submit</button></p>\n\n<div class="cot-form-pages"></div>\n\n<div class="cot-form-sections"></div>\n')
 });

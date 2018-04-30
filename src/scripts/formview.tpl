@@ -1,11 +1,9 @@
 
+<% if (config.title) { %>
 <h2><%- config.title %></h2>
+<% } %>
 
-<div class="row">
-  <div class="col-xs-12">
-    <button type="button" class="btn btn-default">Submit</button>
-  </div>
-</div>
+<p><button type="button" class="btn btn-default">Submit</button></p>
 
 <div class="cot-form-pages"></div>
 

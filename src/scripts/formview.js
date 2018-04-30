@@ -10,8 +10,8 @@ const FormView = FormBaseView.extend({
   configAttributes: ['title'],
 
   domAttributes: [{
-    attribute: 'id',
-    domAttribute: 'id'
+    attribute: 'title',
+    domAttribute: 'title'
   }],
 
   subviewAttributes: [{

@@ -9,6 +9,11 @@ const FormTextFieldView = FormBaseView.extend({
 
   configAttributes: ['id', 'pre_help_text', 'title', 'post_help_text'],
 
+  domAttributes: [{
+    attribute: 'wrapperId',
+    domAttribute: 'id'
+  }],
+
   template: _.template(`{{> formtextfieldview.tpl }}`),
 
   // METHOD DEFINITION
@@ -32,5 +37,17 @@ const FormTextFieldView = FormBaseView.extend({
         this.model.trigger('change:' + id);
       }
     }
+  },
+
+  // INITIALIZER DEFINITION
+
+  initialize: function(options) {
+    if (!_.result(this, 'wrapperId') && _.result(this, 'id')) {
+      this.wrapperId = _.result(this, 'id') + 'Element';
+
+      console.log('WRAPPER ID', this.wrapperId);
+    }
+
+    FormBaseView.prototype.initialize.call(this, options);
   }
 });

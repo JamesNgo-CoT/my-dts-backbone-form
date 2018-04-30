@@ -68,13 +68,13 @@ var FormBaseView = Backbone.View.extend({
   initialize: function initialize(options) {
     this.subViews = [];
 
-    var attributes = _.result(this, 'attributes', {});
     var domAttributes = _.result(this, 'domAttributes', []);
     for (var i = 0, l = domAttributes.length; i < l; i++) {
       var attribute = typeof domAttributes[i] === 'string' ? domAttributes[i] : _.result(domAttributes[i], 'attribute');
       var domAttribute = typeof domAttributes[i] === 'string' ? domAttributes[i] : _.result(domAttributes[i], 'domAttribute', attribute);
-      attributes[(domAttribute, this[attribute])];
+      if (attribute && this[attribute] && domAttribute) {
+        this.$el.attr(domAttribute, this[attribute]);
+      }
     }
-    this.attributes = attributes;
   }
 });
