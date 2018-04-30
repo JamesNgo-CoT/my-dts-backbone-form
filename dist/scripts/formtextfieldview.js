@@ -9,7 +9,7 @@ var FormTextFieldView = FormBaseView.extend({
 
   className: 'cot-form-field col-xs-12',
 
-  configAttributes: ['id', 'pre_help_text', 'title', 'post_help_text'],
+  configAttributes: ['id', 'pre_help_text', 'post_help_text', 'title'],
 
   domAttributes: [{
     attribute: 'wrapperId',
